@@ -1,10 +1,11 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import Sidebar from '../components/Sidebar';
 
 const DashboardLayout = () => {
     return (
-        <div>
-            <h1>hello bangladesh</h1>
+        <div className='flex gap-8'>
+            <Sidebar />
             <div>
                 <Outlet />
             </div>
