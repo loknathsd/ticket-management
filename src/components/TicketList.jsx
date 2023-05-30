@@ -4,7 +4,7 @@ import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai'
 const TicketList = ({ data, handleDelete, handleEdit }) => {
 
     return (
-        <div className="relative overflow-x-auto">
+        <div className="relative overflow-x-auto bg-white shadow-lg pb-12">
             <table className="w-full text-sm text-center text-gray-500 dark:text-gray-400 ">
                 <thead className="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -20,7 +20,6 @@ const TicketList = ({ data, handleDelete, handleEdit }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {data.length === 0 && <th scope='col' className='mt-10 ml-32'>Not found </th>}
                     {
                         data.map((dt, index,) => <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -39,8 +38,8 @@ const TicketList = ({ data, handleDelete, handleEdit }) => {
                     }
                 </tbody>
             </table>
+            {data.length === 0 && <p  className='text-center mt-24 text-2xl font-serif'>Not Add Yet </p>}
         </div>
-
     );
 };
 

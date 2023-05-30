@@ -4,9 +4,9 @@ import Sidebar from '../components/Sidebar';
 
 const DashboardLayout = () => {
     return (
-        <div className='flex gap-8'>
+        <div className='flex '>
             <Sidebar />
-            <div className='w-full'>
+            <div className='w-full bg-blue-100'>
                 <Outlet />
             </div>
             
