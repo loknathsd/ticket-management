@@ -23,6 +23,7 @@ const Modal = ({ isOpen, onClose }) => {
     setData(updatedData);
     localStorage.setItem('addedData', JSON.stringify(updatedData));
     resetForm();
+    onClose();
   }
   if (!isOpen) {
     return null;

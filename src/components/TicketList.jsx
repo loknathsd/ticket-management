@@ -1,7 +1,8 @@
 import React from 'react';
 import { AiOutlineEdit, AiOutlineDelete } from 'react-icons/ai'
 
-const TicketList = ({ data }) => {
+const TicketList = ({ data,handleDelete,handleEdit }) => {
+
     return (
         <div className="relative overflow-x-auto">
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -29,8 +30,8 @@ const TicketList = ({ data }) => {
                             </td>
                             <td className="px-6 py-4">
                                 <div className='flex gap-2 text-xl'>
-                                    <button className='border border-gray-300 p-2 rounded'><AiOutlineEdit /></button>
-                                    <button className='border border-gray-300 p-2 rounded'><AiOutlineDelete /></button>
+                                    <button onClick={()=>handleEdit(index)} className='border border-gray-300 p-2 rounded'><AiOutlineEdit /></button>
+                                    <button onClick={()=>handleDelete(index)} className='border border-gray-300 p-2 rounded'><AiOutlineDelete /></button>
                                 </div>
                             </td>
                         </tr>)
