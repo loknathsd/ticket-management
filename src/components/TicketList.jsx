@@ -38,7 +38,7 @@ const TicketList = ({ data, handleDelete, handleEdit }) => {
                     }
                 </tbody>
             </table>
-            {data.length === 0 && <p  className='text-center mt-24 text-2xl font-serif'>Not Add Yet </p>}
+            {data.length === 0 && <p className='text-center mt-24 text-2xl font-serif'>Not Add Yet </p>}
         </div>
     );
 };

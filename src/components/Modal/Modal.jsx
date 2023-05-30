@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { toast } from 'react-hot-toast';
 
 const Modal = ({ isOpen, onClose,editMode,editIndex,editData }) => {
   const [data, setData] = useState([]);
@@ -31,14 +32,15 @@ const Modal = ({ isOpen, onClose,editMode,editIndex,editData }) => {
       setData(updateData);
       localStorage.setItem('addedData', JSON.stringify(updateData));
       onClose();
+      toast.success("Updated Successfully");
     }else{
       const updatedData = [...data, typeData];
       setData(updatedData);
       localStorage.setItem('addedData', JSON.stringify(updatedData));
       resetForm();
       onClose();
+      toast.success("Added Successfully");
     }
-   
   }
   if (!isOpen) {
     return null;
