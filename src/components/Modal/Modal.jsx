@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-const Modal = ({ isOpen, onClose }) => {
-  const [data, setData] = useState([])
+const Modal = ({ isOpen, onClose,editMode,editIndex,editData }) => {
+  const [data, setData] = useState([]);
   const [type, setType] = useState("");
   const [description, setDescription] = useState("");
 
@@ -10,7 +10,14 @@ const Modal = ({ isOpen, onClose }) => {
     if (storedData) {
       setData(JSON.parse(storedData));
     }
-  }, [])
+  }, []);
+
+  useEffect(()=>{
+       if(editMode === true){
+        setType(editData.type);
+        setDescription(editData.description);
+       }
+  },[editMode,editData])
 
   const resetForm =()=>{
     setType("");
@@ -19,11 +26,19 @@ const Modal = ({ isOpen, onClose }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const typeData = { type, description }
-    const updatedData = [...data, typeData];
-    setData(updatedData);
-    localStorage.setItem('addedData', JSON.stringify(updatedData));
-    resetForm();
-    onClose();
+    if(editMode === true){
+      const updateData = data.map((item,i)=> i === editIndex ? typeData : item);
+      setData(updateData);
+      localStorage.setItem('addedData', JSON.stringify(updateData));
+      onClose();
+    }else{
+      const updatedData = [...data, typeData];
+      setData(updatedData);
+      localStorage.setItem('addedData', JSON.stringify(updatedData));
+      resetForm();
+      onClose();
+    }
+   
   }
   if (!isOpen) {
     return null;
@@ -33,7 +48,7 @@ const Modal = ({ isOpen, onClose }) => {
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="relative z-10 bg-white p-10 rounded shadow-md w-[500px]">
         <div className='flex justify-between text-xl mb-3 '>
-          <h1 className='font-serif'>Add Ticket Type</h1>
+          <h1 className='font-serif'>{`${editMode ===true ? 'Edit' : 'Add'}`} Ticket Type</h1>
           <button onClick={onClose} className='border border-gray-500 px-2 rounded' >X</button>
         </div>
         <hr />
@@ -49,7 +64,7 @@ const Modal = ({ isOpen, onClose }) => {
             </div>
             <div className='flex gap-4 justify-end'>
               <button className="mt-4 px-4 py-2 bg-gray-500 text-white rounded" onClick={onClose}>Cancel </button>
-              <input type="submit" value="Add Ticket Type" className=" px-5 h-10 mt-4 text-white bg-blue-500 rounded cursor-pointer" />
+              <input type="submit" value={`${editMode===true ? 'Save Changes' : 'Add Ticket Type'}`} className=" px-5 h-10 mt-4 text-white bg-blue-500 rounded cursor-pointer" />
             </div>
           </div>
         </form>
