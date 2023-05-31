@@ -21,12 +21,12 @@ const TicketList = ({ data, handleDelete, handleEdit }) => {
                 </thead>
                 <tbody>
                     {
-                        data.map((dt, index,) => <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                        data?.map((dt, index,) => <tr key={index} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {dt.type}
+                                {dt?.type}
                             </th>
                             <td className="px-6 py-4">
-                                {dt.description}
+                                {dt?.description}
                             </td>
                             <td className="px-6 py-4">
                                 <div className='flex gap-2 text-xl justify-center'>
@@ -38,7 +38,7 @@ const TicketList = ({ data, handleDelete, handleEdit }) => {
                     }
                 </tbody>
             </table>
-            {data.length === 0 && <p className='text-center mt-24 text-2xl font-serif'>Not Add Yet </p>}
+            {data?.length === 0 && <p className='text-center mt-24 text-2xl font-serif'>Not Add Yet </p>}
         </div>
     );
 };

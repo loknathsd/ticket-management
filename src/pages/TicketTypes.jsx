@@ -61,7 +61,7 @@ const TicketTypes = () => {
                 <div className='text-right mb-5'>
                     <button onClick={handleButton} className='text-white px-8 py-2 bg-blue-600 rounded'>Add Ticket Type</button>
                 </div>
-                <TicketList isDeleteModalOpen={isDeleteModalOpen} setDeleteModalOpen={setDeleteModalOpen} data={allData} handleDelete={handleDelete} handleEdit={handleEdit} />
+                <TicketList isDeleteModalOpen={isDeleteModalOpen} setDeleteModalOpen={setDeleteModalOpen} data={allData || []} handleDelete={handleDelete} handleEdit={handleEdit} />
             </div>
             {isModalOpen && <Modal
                 editMode={editMode}
