@@ -6,7 +6,7 @@ const TicketList = ({ data, handleDelete, handleEdit }) => {
     return (
         <div className="relative overflow-x-auto bg-white shadow-lg pb-12">
             <table className="w-full text-md text-center text-gray-500 dark:text-gray-400 ">
-                <thead className="text-xs text-blue-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
+                <thead className="text-lg capitalize text-blue-700 bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" className="px-6 py-5">
                             Ticket Type

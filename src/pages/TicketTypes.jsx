@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-hot-toast';
 import DeleteModal from '../components/Modal/DeleteModal';
 import Modal from '../components/Modal/Modal';
 import TicketList from '../components/TicketList';
@@ -35,6 +36,7 @@ const TicketTypes = () => {
         setAllData(updatedData);
         localStorage.setItem('addedData', JSON.stringify(updatedData));
         setDeleteModalOpen(false);
+        toast.success("Deleted");
     }
     const openModalDelete = () => {
         setDeleteModalOpen(true);

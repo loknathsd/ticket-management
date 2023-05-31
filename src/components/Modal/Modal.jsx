@@ -32,14 +32,14 @@ const Modal = ({ isOpen, onClose,editMode,editIndex,editData }) => {
       setData(updateData);
       localStorage.setItem('addedData', JSON.stringify(updateData));
       onClose();
-      toast.success("Updated Successfully");
+      toast.success("Ticket Type Updated Successfully");
     }else{
       const updatedData = [...data, typeData];
       setData(updatedData);
       localStorage.setItem('addedData', JSON.stringify(updatedData));
       resetForm();
       onClose();
-      toast.success("Added Successfully");
+      toast.success("Ticked type Added Successfully");
     }
   }
   if (!isOpen) {
