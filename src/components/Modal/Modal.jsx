@@ -57,7 +57,7 @@ const Modal = ({ isOpen, onClose,editMode,editIndex,editData }) => {
         <form className='flex justify-center mt-5' onSubmit={handleSubmit} >
           <div className='w-full'>
             <div>
-              <label className='text-lg font-serif' >Ticket Type</label><br />
+              <label className='text-lg font-serif' >Ticket Type <span className='text-red-500'>*</span></label><br />
               <input name="type" value={type} type="text" onChange={(e) => setType(e.target.value)} className='mt-1 w-full rounded px-5 py-2 border border-gray-400' required />
             </div>
             <div className='mt-5'>
